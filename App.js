@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, SafeAreaView, StatusBar as SB } from "react-native";
+import { store } from "./store/store";
+import { Provider } from "react-redux";
+import CryptoPriceList from "./components/CryptoPriceList";
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <StatusBar style="light" />
+      <Provider store={store}>
+        <CryptoPriceList />
+      </Provider>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#0c5cad",
+    paddingTop: SB.currentHeight, // adjust the safeareaview for android
   },
 });
