@@ -7,3 +7,8 @@ cd myApp
 npm i
 npx expo start
 ```
+
+<img src="https://github.com/sumukus/top-100-crypto-price-list/blob/main/assets/top-100-crypto-price-list.png" 
+        alt="Radio Buttons Image"  
+        height="100%"
+        width="200"/>
