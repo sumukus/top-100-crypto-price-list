@@ -21,6 +21,9 @@ function CryptoPriceList() {
     dispatch(getCryptocurrency());
   }, []);
 
+  function handleReload() {
+    dispatch(getCryptocurrency());
+  }
   return (
     <>
       <View style={styles.titleContainer}>
@@ -33,10 +36,7 @@ function CryptoPriceList() {
       ) : error ? (
         <View style={styles.errorContainer}>
           <Text style={styles.error}>{error}</Text>
-          <Button
-            title="Reload"
-            onPress={() => dispatch(getCryptocurrency())}
-          />
+          <Button title="Reload" onPress={handleReload} />
         </View>
       ) : (
         <FlatList

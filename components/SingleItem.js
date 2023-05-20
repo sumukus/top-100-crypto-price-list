@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet, Image } from "react-native";
+import { memo } from "react";
 
 function SingleItem({ item }) {
   return (
@@ -14,8 +15,10 @@ function SingleItem({ item }) {
       </View>
       <View style={styles.description}>
         <Text style={styles.text}>Name: {item.name}</Text>
-        <Text style={styles.text}>Price: ${item.current_price.toFixed(5)}</Text>
-        <Text style={styles.text}>Volume: {item.total_volume}</Text>
+        <Text style={styles.text}>Price: ${item.current_price.toFixed(4)}</Text>
+        <Text style={styles.text}>
+          Volume: {parseInt(item.total_volume).toLocaleString()}
+        </Text>
         <Text style={styles.text}>
           PriceChange: ${item.price_change_24h.toFixed(5)}
         </Text>
@@ -27,7 +30,7 @@ function SingleItem({ item }) {
   );
 }
 
-export default SingleItem;
+export default memo(SingleItem);
 
 const styles = StyleSheet.create({
   rootContainer: {
